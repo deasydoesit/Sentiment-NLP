@@ -4,3 +4,9 @@ exports.twitter = {
     bearer_token: process.env.TWITTER_BEARER_TOKEN
 };
 
+exports.watson = {
+    username: process.env.WATSON_USERNAME,
+    password: process.env.WATSON_PASSWORD,
+    version: process.env.WATSON_VERSION
+};
+
