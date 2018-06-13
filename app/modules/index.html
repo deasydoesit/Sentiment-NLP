@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sentiment.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+<body>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <h1>We are live!</h1>
+
+    <div class="row">
+
+            <div class="col-lg-12">
+      
+                    <div style="padding: 20px;">
+                            <input id="query" type="text" value="" />
+                            <input id="submit" type="button" value="Search" />
+                        </div>
+                        <div id="tweets" style="padding: 20px;">
+                            Tweets will go here.
+                        </div>
+                    
+
+              </div>
+              </div>
+
+    <div id="twitter-feed"></div>
+
+    <script>
+
+        $("#submit").on("click", function() {
+      var search = $("#query").val().trim();
+
+        $.post("/api/query", search)
+        .then(function(data) {
+          console.log(data);
+        });
+
+
+    });
+
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
