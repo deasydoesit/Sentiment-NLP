@@ -12,7 +12,7 @@
     "Sentiment",
     "Cryptocurrency"
   ],
-  "author": "Abi Prabash, Daniel, Darwin Rinderer",
+  "author": "Abi Prabash, Daniel Button, Darwin Rinderer",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^6.0.0",
