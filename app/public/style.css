@@ -1,0 +1,12 @@
+.container {
+    width: 60%;
+    align-items: center;
+}
+
+.button {
+    margin-left: 350px;
+}
+
+.hero {
+    background-image: "./Images/bg1.jpg";
+}
