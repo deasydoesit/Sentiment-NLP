@@ -4,10 +4,16 @@ var cryptoSearch = require("../../app/modules/crypto.js");
 
 module.exports = function(app) {
 
-    app.get("/api", function(req, res) {
-        twitterSearch();
-        watsonNlp();
-        cryptoSearch("ETH");
+    // app.get("/api", function(req, res) {
+    //     twitterSearch();
+    //     watsonNlp();
+    //     cryptoSearch("ETH");
+    // });
+
+    app.post("/api", function(req, res) {
+        var userSearch = req.body.search;
+        twitterSearch(userSearch);
+        res.json(req.body);
     });
 
 };

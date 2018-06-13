@@ -55,10 +55,10 @@
     <br>
     <br>
     <div class="container width= 500px">
-        <div class=" block ">
+        <div class="block">
             <div class="field">
-                <p class="control ">
-                    <input type="text " class="input is-info" id="searchTerm" placeholder="Bitcoin, Ethereum, Zcash... ">
+                <p class="control">
+                    <input type="text" class="input is-info" id="searchTerm" placeholder="Bitcoin, Ethereum, Zcash... ">
                 </p>
             </div>
             <div class="block">
@@ -67,21 +67,18 @@
         </div>
 
     </div>
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin=" anonymous "></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=" anonymous "></script>
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
 
             // Capture the form inputs 
-            $("#searchButton").on("click", function (event) {
+            $("#searchButton").on("click", function(event) {
                 event.preventDefault();
-                var userSearch = $("#searchTerm").val().trim();
+                var userSearch = {
+                    search: $("#searchTerm").val().trim()
+                };
                 //post request
-                $.post("/api", userSearch, function (data) {
+                $.post("/api", userSearch, function(data) {
                     if (data) {
                         console.log(data);
                     } else {
@@ -90,7 +87,6 @@
                     $("#searchTerm").val("");
                 });
             });
-
         });
     </script>
 </body>
