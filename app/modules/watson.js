@@ -4,10 +4,10 @@ var keys = require("../data/keys/keys");
 var NaturalLanguageUnderstanding = require('watson-developer-cloud/natural-language-understanding/v1.js');
 var natural_language_understanding = new NaturalLanguageUnderstanding(keys.watson);
 
-var watsonNlp = function() {
+var watsonNlp = function(text) {
     
     var parameters = {
-        'text': 'IBM is an American multinational technology company headquartered in Armonk, New York, United States, with operations in over 170 countries.',
+        'text': text,
         'features': {
           'entities': {
             'emotion': true,
