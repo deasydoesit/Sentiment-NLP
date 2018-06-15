@@ -17,7 +17,7 @@ module.exports = function(app) {
 
         var results = {};
 
-        axios.all([getTweets(req.body.search), getPrice()])
+        axios.all([getTweets(req.body.search), getPrice(req.body.search)])
             .then(axios.spread(function(tweets, price) {
 
                 // price handling 
