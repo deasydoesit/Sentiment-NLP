@@ -4,70 +4,90 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sentiment.io</title>
+    <title>Sentiment.NLP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 
 <body>
     <!--hero-->
-    <section class="hero is-info is-medium">
+    <section class="hero is-large has-bg-img">
         <div class="hero-head">
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar-brand">
                         <a class="navbar-item">
-                            <img src="./Images/logo.png" alt="Logo">
+                            <i class="material-icons" style="font-size:50px;color:lightgray">language</i>
                         </a>
                         <span class="navbar-burger burger" data-target="navbarMenuHeroB">
-                            <span>Home</span>
-                            <span>Search</span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </span>
                     </div>
                     <div id="navbarMenuHeroB" class="navbar-menu">
                         <div class="navbar-end">
-                            <a href="/index.html" class="navbar-item is-active">
+                            <a class="navbar-item is-active has-text-light has-text-weight-bold">
                                 Home
                             </a>
-                            <a class="navbar-item">
+
+                            <a class="navbar-item is-active has-text-light has-text-weight-bold">
                                 Search
                             </a>
+                            <span class="navbar-item">
+                                <a class="button is-info is-inverted">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>Download</span>
+                                </a>
+                            </span>
                         </div>
                     </div>
                 </div>
             </nav>
         </div>
-
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <p class="title">
-                    Sentiment NLP
-                </p>
-                <p class="subtitle">
-                    Subtitle ..text to brief our app
-                </p>
+        <div class="container1">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <p id="title" class="title has-text-weight-bold ">
+                        Sentiment-NLP
+                    </p>
+                    <p class="subtitle has-text-weight-bold">
+                        Sentiment analysis aims to determine the attitude of a speaker, writer, or other subject with respect to some topic or the
+                        overall contextual polarity or emotional reaction to a document, interaction, or event.
+                    </p>
+                </div>
+                <br>
+                <br>
+                <div class="container width= 500px">
+                    <div class=" block ">
+                        <div class="field">
+                            <p class="control ">
+                                <input type="text " class="input is-info" id="searchTerm" placeholder="Bitcoin, Ethereum, Zcash... ">
+                            </p>
+                        </div>
+                        <a href="#" class="button is-link is-inverted is-centered" id="searchButton">Search</a>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <div class="hero-foot">
+            <nav class="tabs is-boxed has-text-centered">
+                <div class="container">
+                    <ul>
+                        <li>
+                            <a>&copy Copyright 2018</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     </section>
-    <br>
-    <br>
-    <br>
-    <div class="container width= 500px">
-        <div class=" block ">
-            <div class="field">
-                <p class="control ">
-                    <input type="text " class="input is-info" id="searchTerm" placeholder="Bitcoin, Ethereum, Zcash... ">
-                </p>
-            </div>
-            <div class="block">
-                <a href="#" class="button is-info" id="searchButton">Search</a>
-            </div>
-        </div>
-
-    </div>
-
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
