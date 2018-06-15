@@ -1,9 +1,7 @@
 require("dotenv").config(); 
-
-var keys = require("../data/keys/keys");
 var axios = require("axios");
 
-var keys = require("../data/keys/keys.js")
+var keys = require("../data/keys/keys");
 var getTweets = require("../../app/modules/twitter.js");
 var getPrice = require("../../app/modules/crypto.js");
 
@@ -17,7 +15,7 @@ module.exports = function(app) {
 
         var results = {};
 
-        axios.all([getTweets(req.body.search), getPrice()])
+        axios.all([getTweets(req.body.search), getPrice(req.body.search)])
             .then(axios.spread(function(tweets, price) {
 
                 // price handling 
