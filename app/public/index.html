@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
 </head>
 
 <body>
@@ -96,18 +97,18 @@
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin=" anonymous "></script>
+        crossorigin=" anonymous "></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             // Capture the form inputs 
-            $("#searchButton").on("click", function(event) {
+            $("#searchButton").on("click", function (event) {
                 event.preventDefault();
                 var userSearch = {
                     search: $("#searchTerm").val().trim().toUpperCase()
                 };
                 //post request
-                $.post("/api", userSearch, function(data) {
+                $.post("/api", userSearch, function (data) {
                     if (data) {
                         console.log(data);
 
