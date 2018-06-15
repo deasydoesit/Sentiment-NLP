@@ -1,4 +1,4 @@
-.container {
+/* .container {
     width: 60%;
     align-items: center;
 }
@@ -9,4 +9,19 @@
 
 .hero {
     background-image: "./Images/bg1.jpg";
+} */
+
+.has-bg-img {
+    background: url('./Images/bg1.jpg')center center;
+    background-size: cover;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.title {
+    vertical-align: top 150px;
 }
