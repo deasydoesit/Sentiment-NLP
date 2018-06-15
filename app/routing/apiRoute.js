@@ -1,4 +1,5 @@
 require("dotenv").config(); 
+
 var axios = require("axios");
 
 var keys = require("../data/keys/keys");
@@ -9,9 +10,9 @@ var getPrice = require("../../app/modules/crypto.js");
 var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
 var natural_language_understanding = new NaturalLanguageUnderstandingV1(keys.watson);
 
-module.exports = function(app) {
+module.exports = function (app) {
 
-    app.post("/api", function(req, res) {
+    app.post("/api", function (req, res) {
 
         var results = {};
 
@@ -19,8 +20,8 @@ module.exports = function(app) {
             .then(axios.spread(function(tweets, price) {
 
                 // price handling 
-                var avgPriceArray = price.data.Data.reduce(function(accum, current) {
-                    var avg = ((current.high + current.low ) / 2);
+                var avgPriceArray = price.data.Data.reduce(function (accum, current) {
+                    var avg = ((current.high + current.low) / 2);
                     accum.push(Number.parseFloat(avg).toFixed(2));
                     return accum
                 }, []);
@@ -35,32 +36,32 @@ module.exports = function(app) {
                 return text;
 
             }))
-            .then(function(text){
+            .then(function (text) {
                 var parameters = {
                     'text': 'IBM is an American multinational technology company headquartered in Armonk, New York, United States, with operations in over 170 countries.',
                     'features': {
-                      'entities': {
-                        'emotion': true,
-                        'sentiment': true,
-                        'limit': 2
-                      },
-                      'keywords': {
-                        'emotion': true,
-                        'sentiment': true,
-                        'limit': 2
-                      }
+                        'entities': {
+                            'emotion': true,
+                            'sentiment': true,
+                            'limit': 2
+                        },
+                        'keywords': {
+                            'emotion': true,
+                            'sentiment': true,
+                            'limit': 2
+                        }
                     }
-                  }
-                  
-                  natural_language_understanding.analyze(parameters, function(err, response) {
+                }
+
+                natural_language_understanding.analyze(parameters, function (err, response) {
                     if (err)
                         console.log('error:', err);
                     else {
                         results.watson = response
                         return res.send(results);
-                  }});
+                    }
+                });
             });
     });
-    
+
 };
- 
