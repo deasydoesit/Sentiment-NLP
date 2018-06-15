@@ -1,24 +1,10 @@
-var request = require("request");
+var axios = require("axios");
 
-var cryptoSearch = function(search) {
 
-    var queryUrl = `https://min-api.cryptocompare.com/data/histoday?fsym=${search}&tsym=USD&limit=7`;
-    var avgPriceArray;
+var getPrice = function() {
 
-    request(queryUrl, function(error, response, body) {
-
-        var priceArray = JSON.parse(body).Data; 
-
-        avgPriceArray = priceArray.reduce(function(accum, current) {
-            var avg = ((current.high + current.low ) / 2);
-            accum.push(Number.parseFloat(avg).toFixed(2));
-            return accum
-        }, []);
-
-        console.log(avgPriceArray);
-
-    });
+    return axios.get(`https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=7`);
 
 };
 
-module.exports = cryptoSearch;
+module.exports = getPrice;

@@ -4,37 +4,48 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sentiment.io</title>
+    <title>Sentiment.NLP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 
 <body>
     <!--hero-->
-    <section class="hero is-info is-medium">
+    <section class="hero is-large has-bg-img">
         <div class="hero-head">
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar-brand">
                         <a class="navbar-item">
-                            <img src="./Images/logo.png" alt="Logo">
+                            <i class="material-icons" style="font-size:50px;color:lightgray">language</i>
                         </a>
                         <span class="navbar-burger burger" data-target="navbarMenuHeroB">
-                            <span>Home</span>
-                            <span>Search</span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </span>
                     </div>
                     <div id="navbarMenuHeroB" class="navbar-menu">
                         <div class="navbar-end">
-                            <a href="/index.html" class="navbar-item is-active">
+                            <a class="navbar-item is-active has-text-light has-text-weight-bold">
                                 Home
                             </a>
-                            <a class="navbar-item">
+
+                            <a class="navbar-item is-active has-text-light has-text-weight-bold">
                                 Search
                             </a>
+                            <span class="navbar-item">
+                                <a class="button is-info is-inverted">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>Download</span>
+                                </a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -81,14 +92,16 @@
         crossorigin=" anonymous "></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
 
             // Capture the form inputs 
-            $("#searchButton").on("click", function (event) {
+            $("#searchButton").on("click", function(event) {
                 event.preventDefault();
-                var userSearch = $("#searchTerm").val().trim();
+                var userSearch = {
+                    search: $("#searchTerm").val().trim()
+                };
                 //post request
-                $.post("/api", userSearch, function (data) {
+                $.post("/api", userSearch, function(data) {
                     if (data) {
                         console.log(data);
                     } else {
@@ -97,7 +110,6 @@
                     $("#searchTerm").val("");
                 });
             });
-
         });
 
 // chartjs script
