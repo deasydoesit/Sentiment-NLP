@@ -44,32 +44,23 @@ module.exports = function (app) {
                 return text;
 
             }))
-            // .then(function (text) {
-            //     var parameters = {
-            //         'text': 'IBM is an American multinational technology company headquartered in Armonk, New York, United States, with operations in over 170 countries.',
-            //         'features': {
-            //             'entities': {
-            //                 'emotion': true,
-            //                 'sentiment': true,
-            //                 'limit': 2
-            //             },
-            //             'keywords': {
-            //                 'emotion': true,
-            //                 'sentiment': true,
-            //                 'limit': 2
-            //             }
-            //         }
-            //     }
+            .then(function (text) {
+                var parameters = {
+                    'text': text,
+                    'features': {
+                        'sentiment': {}
+                        },
+                }
 
-            //     natural_language_understanding.analyze(parameters, function (err, response) {
-            //         if (err)
-            //             console.log('error:', err);
-            //         else {
-            //             results.watson = response
-            //             return res.send(results);
-            //         }
-            //     });
-            // });
+                natural_language_understanding.analyze(parameters, function (err, response) {
+                    if (err)
+                        console.log('error:', err);
+                    else {
+                        results.watson = response.sentiment.document;
+                        return res.send(results);
+                    }
+                });
+            });
     });
 
 };
