@@ -1,4 +1,5 @@
 var twitterSearch = require("../../app/modules/twitter.js");
+console.log(twitterSearch);
 // var watson = require("../modules/watson.js")
 var Twitter = require('twitter');
 // var client = new Twitter(keys.twitter);
@@ -17,7 +18,9 @@ module.exports = function(app) {
     console.log(search)
 
     //passes the above variable, search, into the function twitterSearch which is it to twitter.js because of line 1
-      twitterSearch(search);
+      var tweetsData = twitterSearch(search);
+      console.log("test" + tweetsData);
+      res.json("hello")
       // watsonNlp();
   });
 

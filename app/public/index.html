@@ -53,12 +53,13 @@
 //take variable search and gives it to /api/query which is sent to apiRoute.js
       $.post("/api/query", search)
       .then(function(twitter) {
+          console.log("twitter")
         $("#twitter-feed").append(twitter);
       });
   });
 
     </script>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 </html>

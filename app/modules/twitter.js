@@ -6,7 +6,7 @@ var Twitter = require('twitter');
 
 //the variable search is taken from apiRoute.js and passed into function twitter.
 function twitter(search) {
-
+console.log(search);
 //a new variable, tag, is created using the value of search
 var tag = search;
 
@@ -21,7 +21,10 @@ var client = new Twitter({
 client.get('search/tweets', {q: tag}, function(error, tweets, response) {
   for (i=0; i < 10; i++) {
   console.log(tweets.statuses[i].text);
-}});
+  
+}
+return tweets.statuses[0].text;
+});
 
 };
 
