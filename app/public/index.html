@@ -76,7 +76,7 @@
                 </div>
                 <div id="sentiment" style="font-size: 30px"></div>
                 <br>
-                <canvas id="myChart" width="10" height="10"></canvas>
+                <canvas id="myChart" width="0" height="0"></canvas>
             </div>
         </div>
     </div>
@@ -141,7 +141,20 @@ document.getElementById('hiddenSearch').style.visibility = "hidden";
             var showChart = document.getElementById('frontPage');
             showChart.remove()
 
-var watson = " Sentiment: " + data.watson.keywords[0].sentiment.label
+
+
+var watson = " Sentiment: " + data.watson.label
+
+if (data.watson.score > 0) {
+document.getElementById("sentiment").style.color = "green";
+}
+if (data.watson.score < 0) {
+document.getElementById("sentiment").style.color = "red";
+}
+if (data.watson.score == 0) {
+document.getElementById("sentiment").style.color = "orange";
+}
+
 $("#sentiment").append(watson);
 
                       
@@ -224,7 +237,7 @@ var myChart = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:false
                 }
             }]
         }
@@ -252,7 +265,7 @@ $("#hiddenSearchButton").on("click", function (event) {
                     if (data) {
                         console.log(data);
 
-var watson = " Sentiment: " + data.watson.keywords[0].sentiment.label
+var watson = " Sentiment: " + data.watson.label
 $("#sentiment").text(watson);
 
 $('html,body').scrollTop(0);
@@ -334,7 +347,7 @@ var myChart = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:false
                 }
             }]
         }
@@ -418,7 +431,7 @@ var myChart = new Chart(ctx, {
                                 scales: {
                                     yAxes: [{
                                         ticks: {
-                                            beginAtZero:true
+                                            beginAtZero:false
                                         }
                                     }]
                                 }
