@@ -74,9 +74,11 @@
                         <a href="#" class="button is-link is-rounded is-focused is-medium" id="searchButton">Search</a>
                     </div>
                 </div>
+
                 <div id="sentiment" style="font-size: 30px"></div>
                 <br>
                 <canvas id="myChart" width="0" height="0"></canvas>
+
             </div>
         </div>
     </div>
@@ -88,17 +90,6 @@
             <div class="field">
                 <div class="control ">
                     <input type="text " class="input is-info" id="hiddenSearchTerm" placeholder="Bitcoin, Ethereum, Zcash... ">
-
-
-        <div class="hero-foot">
-            <nav class="tabs is-boxed">
-                <div class="container has-text-weight-bold">
-                    <ul>
-                        <li>
-                            <a>&copy Copyright 2018</a>
-                        </li>
-                    </ul>
-                  
                 </div>
             </div>
             <a href="#" class="button is-success is-right" id="hiddenSearchButton">Search</a>
@@ -154,6 +145,8 @@ document.getElementById("sentiment").style.color = "red";
 if (data.watson.score == 0) {
 document.getElementById("sentiment").style.color = "orange";
 }
+
+var watson = " Sentiment: " + data.watson.label
 
 $("#sentiment").append(watson);
 
@@ -265,96 +258,6 @@ $("#hiddenSearchButton").on("click", function (event) {
                     if (data) {
                         console.log(data);
 
-var watson = " Sentiment: " + data.watson.label
-$("#sentiment").text(watson);
-
-$('html,body').scrollTop(0);
-
-document.getElementById('hiddenSearch').style.visibility = "visible";
-
-var ctx = document.getElementById("myChart").getContext('2d');
-
-var today = new Date();
-var dd0 = today.getDate();
-var dd1 = today.getDate()-1;
-var dd2 = today.getDate()-2;
-var dd3 = today.getDate()-3;
-var dd4 = today.getDate()-4;
-var dd5 = today.getDate()-5;
-var dd6 = today.getDate()-6;
-var dd7 = today.getDate()-7;
-var mm = today.getMonth()+1;
-var yy = today.getFullYear();
-
-if (mm === 1) {
-    mo = "Jan."
-};
-if (mm === 2) {
-    mo = "Feb."
-};
-if (mm === 3) {
-    mo = "Mar."
-};
-if (mm === 4) {
-    mo = "Apr."
-};
-if (mm === 5) {
-    mo = "May"
-};
-if (mm === 6) {
-    mo = "June"
-};
-if (mm === 7) {
-    mo = "July"
-};
-if (mm === 8) {
-    mo = "Aug."
-};
-if (mm === 9) {
-    mo = "Sep."
-};
-if (mm === 10) {
-    mo = "Oct."
-};
-if (mm === 11) {
-    mo = "Nov."
-};
-if (mm === 12) {
-    mo = "Dec."
-};
-
-
-var myChart = new Chart(ctx, {
-
-    type: 'line',
-    data: {
-        labels: [mo + " " + dd6 + ", " + yy, mo + " " + dd5 + ", " + yy, mo + " " + dd4 + ", " + yy, mo + " " + dd3 + ", " + yy, mo + " " + dd2 + ", " + yy, mo + " " + dd1 + ", " + yy, mo + " " + dd0 + ", " + yy],
-        datasets: [{
-            label: userSearch.search + ' Price in $',
-            data: [data.price[0], data.price[1], data.price[2], data.price[3], data.price[4], data.price[5], data.price[6]],
-            backgroundColor: [
-                'rgba(0, 0, 0, 0)'
-                
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)'
-                
-            ],
-            borderWidth: 3
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:false
-                }
-            }]
-        }
-    }
-});
-
-
                         var watson = "Today's Sentiment: " + data.watson.label;
                         $("#sentiment").text(watson)
 
@@ -437,6 +340,7 @@ var myChart = new Chart(ctx, {
                                 }
                             }
                         });
+
                     } else {
                         alert("Uh Oh something went wrong X_X");
                     }
