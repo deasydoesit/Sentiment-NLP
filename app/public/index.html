@@ -77,37 +77,34 @@
 
                 <div id="sentiment" style="font-size: 30px"></div>
                 <br>
-                <canvas id="myChart" width="0" height="0"></canvas>
+                <canvas id="myChart"></canvas>
 
             </div>
         </div>
     </div>
     </section>
 
-    <br>
-    <div id="hiddenSearch" class="container width= 500px">
+    <div class="container has-text-centered" style="background: white; margin: 10px, 0, 0, 0">
+        <h5 id="hiddenTitle" class="title has-text-dark has-text-weight-bold ">
+            Sentiment-NLP
+        </h5>
+   
+    <div class="container1">
         <div class=" block ">
             <div class="field">
-                <div class="control ">
+                <p class="control ">
                     <input type="text " class="input is-info" id="hiddenSearchTerm" placeholder="Bitcoin, Ethereum, Zcash... ">
-                </div>
+                </p>
             </div>
-            <a href="#" class="button is-success is-right" id="hiddenSearchButton">Search</a>
+            <a href="#" class="button is-link is-rounded is-focused is-medium" id="hiddenSearchButton">Search</a>
         </div>
     </div>
 
-<br>
-    <div id="sentiment" style="font-size: 30px"></div>
-    <br>
-    <canvas class="chartjs-render-monitor" id="myChart" width="1" height="1"></canvas>
+</div>
 
-    <div class="hero-foot">
-        <nav class="tabs is-boxed has-text-centered">
-            <div class="container">
-                        <a>&copy Copyright 2018</a>
-            </div>
-        </nav>
-    </div>
+    <div id="sentiment" style="font-size: 30px"></div>
+    
+    <canvas class="chartjs-render-monitor" id="myChart" width="0" height="0"></canvas>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin=" anonymous "></script>
@@ -115,7 +112,9 @@
 
         $(document).ready(function () {
 
-document.getElementById('hiddenSearch').style.visibility = "hidden";
+document.getElementById('hiddenSearchTerm').style.visibility = "hidden";
+document.getElementById('hiddenTitle').style.visibility = "hidden";
+document.getElementById('hiddenSearchButton').style.visibility = "hidden";
 
             // Capture the form inputs 
             $("#searchButton").on("click", function (event) {
@@ -146,14 +145,16 @@ if (data.watson.score == 0) {
 document.getElementById("sentiment").style.color = "orange";
 }
 
-var watson = " Sentiment: " + data.watson.label
+var watson = "Today's Sentiment: " + data.watson.label
 
 $("#sentiment").append(watson);
 
                       
 $('html,body').scrollTop(0);
 
-document.getElementById('hiddenSearch').style.visibility = "visible";
+document.getElementById('hiddenSearchTerm').style.visibility = "visible";
+document.getElementById('hiddenTitle').style.visibility = "visible";
+document.getElementById('hiddenSearchButton').style.visibility = "visible";
 
 var ctx = document.getElementById("myChart").getContext('2d');
 
@@ -315,10 +316,10 @@ $("#hiddenSearchButton").on("click", function (event) {
                         var myChart = new Chart(ctx, {
                             type: 'line',
                             data: {
-                                labels: [mo + " " + dd7 + ", " + yy, mo + " " + dd6 + ", " + yy, mo + " " + dd5 + ", " + yy, mo + " " + dd4 + ", " + yy, mo + " " + dd3 + ", " + yy, mo + " " + dd2 + ", " + yy, mo + " " + dd1 + ", " + yy, mo + " " + dd0 + ", " + yy],
+                                labels: [mo + " " + dd6 + ", " + yy, mo + " " + dd5 + ", " + yy, mo + " " + dd4 + ", " + yy, mo + " " + dd3 + ", " + yy, mo + " " + dd2 + ", " + yy, mo + " " + dd1 + ", " + yy, mo + " " + dd0 + ", " + yy],
                                 datasets: [{
                                     label: userSearch.search + ' Price in USD',
-                                    data: [data.price[0], data.price[1], data.price[2], data.price[3], data.price[4], data.price[5], data.price[6], data.price[7]],
+                                    data: [data.price[0], data.price[1], data.price[2], data.price[3], data.price[4], data.price[5], data.price[6]],
                                     backgroundColor: [
                                         'rgba(0, 0, 0, 0)'
                                         
