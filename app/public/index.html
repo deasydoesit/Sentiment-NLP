@@ -16,73 +16,44 @@
 
 <body>
     <!--hero-->
-    
-    <section id="frontPage" class="hero is-large has-bg-img">
-        <div class="hero-head">
-            <nav class="navbar">
-                <!-- <div class="container"> -->
-                    <div class="navbar-brand">
-                        <a class="navbar-item">
-                            <i class="material-icons" style="font-size:50px;color:lightgray">language</i>
-                        </a>
-                        <span class="navbar-burger burger" data-target="navbarMenuHeroB">
-                        </span>
-                    </div>
-                    <div id="navbarMenuHeroB" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a class="navbar-item is-active has-text-light has-text-weight-bold">
-                                Home
-                            </a>
 
-                            <a class="navbar-item is-active has-text-light has-text-weight-bold">
-                                Search
-                            </a>
-                            <span class="navbar-item">
-                                <a class="button is-info is-inverted">
-                                    <span class="icon">
-                                        <i class="fab fa-github"></i>
-                                    </span>
-                                    <span>Download</span>
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-                <!-- </div> -->
-            </nav>
-        </div>
+    <section id="frontPage" class="hero is-medium has-bg-img">
+
         <div class="container">
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <p id="title" class="title has-text-dark has-text-weight-bold ">
-                      
                         Sentiment-NLP
                     </p>
                     <p id="subtitle" class="subtitle has-text-dark has-text-weight-bold">
                         Sentiment analysis aims to determine the attitude of a speaker, writer, or other subject with respect to some topic or the
                         overall contextual polarity or emotional reaction to a document, interaction, or event.
+                        <span style="color:rgb(13, 13, 238)"> Enter Crytocurrency coin name to get Price and Sentiment analysis.</span>
+
                     </p>
                 </div>
-                <br>
-                <br>
-                <div class="container1">
-                    <div class=" block ">
-                        <div class="field">
-                            <p class="control ">
-                                <input type="text " class="input is-info" id="searchTerm" placeholder="Bitcoin, Ethereum, Zcash... ">
-                            </p>
-                        </div>
-                        <a href="#" class="button is-link is-rounded is-focused is-medium" id="searchButton">Search</a>
-                    </div>
-                </div>
-
-                <div id="sentiment" style="font-size: 30px"></div>
-                <br>
-                <canvas id="myChart" width="0" height="0"></canvas>
-
+    </section>
+    <br>
+    <br>
+    <div class="container1">
+        <div class=" block ">
+            <div class="field">
+                <p class="control ">
+                    <input type="text " class="input is-info" id="searchTerm" placeholder="Bitcoin, Ethereum, Zcash... ">
+                </p>
             </div>
+            <a href="#" class="button is-link is-rounded is-focused is-medium" id="searchButton">Search</a>
         </div>
     </div>
-    </section>
+
+    <div id="sentiment" style="font-size: 30px"></div>
+    <br>
+    <canvas id="myChart" width="0" height="0"></canvas>
+
+    </div>
+    </div>
+
+
 
     <br>
     <div id="hiddenSearch" class="container width= 500px">
@@ -96,26 +67,19 @@
         </div>
     </div>
 
-<br>
+    <br>
     <div id="sentiment" style="font-size: 30px"></div>
     <br>
     <canvas class="chartjs-render-monitor" id="myChart" width="1" height="1"></canvas>
 
-    <div class="hero-foot">
-        <nav class="tabs is-boxed has-text-centered">
-            <div class="container">
-                        <a>&copy Copyright 2018</a>
-            </div>
-        </nav>
-    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin=" anonymous "></script>
     <script type="text/javascript">
-
         $(document).ready(function () {
 
-document.getElementById('hiddenSearch').style.visibility = "hidden";
+            document.getElementById('hiddenSearch').style.visibility = "hidden";
 
             // Capture the form inputs 
             $("#searchButton").on("click", function (event) {
@@ -129,126 +93,134 @@ document.getElementById('hiddenSearch').style.visibility = "hidden";
 
                         console.log(data);
 
-            var showChart = document.getElementById('frontPage');
-            showChart.remove()
+                        var showChart = document.getElementById('frontPage');
+                        showChart.remove()
 
 
 
-var watson = " Sentiment: " + data.watson.label
+                        var watson = " Sentiment: " + data.watson.label
 
-if (data.watson.score > 0) {
-document.getElementById("sentiment").style.color = "green";
-}
-if (data.watson.score < 0) {
-document.getElementById("sentiment").style.color = "red";
-}
-if (data.watson.score == 0) {
-document.getElementById("sentiment").style.color = "orange";
-}
+                        if (data.watson.score > 0) {
+                            document.getElementById("sentiment").style.color = "green";
+                        }
+                        if (data.watson.score < 0) {
+                            document.getElementById("sentiment").style.color = "red";
+                        }
+                        if (data.watson.score == 0) {
+                            document.getElementById("sentiment").style.color = "orange";
+                        }
 
-var watson = " Sentiment: " + data.watson.label
+                        var watson = " Sentiment: " + data.watson.label
 
-$("#sentiment").append(watson);
-
-                      
-$('html,body').scrollTop(0);
-
-document.getElementById('hiddenSearch').style.visibility = "visible";
-
-var ctx = document.getElementById("myChart").getContext('2d');
-
-var today = new Date();
-var dd0 = today.getDate();
-var dd1 = today.getDate()-1;
-var dd2 = today.getDate()-2;
-var dd3 = today.getDate()-3;
-var dd4 = today.getDate()-4;
-var dd5 = today.getDate()-5;
-var dd6 = today.getDate()-6;
-var dd7 = today.getDate()-7;
-var mm = today.getMonth()+1;
-var yy = today.getFullYear();
-
-if (mm === 1) {
-    mo = "Jan."
-};
-if (mm === 2) {
-    mo = "Feb."
-};
-if (mm === 3) {
-    mo = "Mar."
-};
-if (mm === 4) {
-    mo = "Apr."
-};
-if (mm === 5) {
-    mo = "May"
-};
-if (mm === 6) {
-    mo = "June"
-};
-if (mm === 7) {
-    mo = "July"
-};
-if (mm === 8) {
-    mo = "Aug."
-};
-if (mm === 9) {
-    mo = "Sep."
-};
-if (mm === 10) {
-    mo = "Oct."
-};
-if (mm === 11) {
-    mo = "Nov."
-};
-if (mm === 12) {
-    mo = "Dec."
-};
+                        $("#sentiment").append(watson);
 
 
-var myChart = new Chart(ctx, {
+                        $('html,body').scrollTop(0);
 
-    type: 'line',
-    data: {
-        labels: [mo + " " + dd6 + ", " + yy, mo + " " + dd5 + ", " + yy, mo + " " + dd4 + ", " + yy, mo + " " + dd3 + ", " + yy, mo + " " + dd2 + ", " + yy, mo + " " + dd1 + ", " + yy, mo + " " + dd0 + ", " + yy],
-        datasets: [{
-            label: userSearch.search + ' Price in $',
-            data: [data.price[0], data.price[1], data.price[2], data.price[3], data.price[4], data.price[5], data.price[6]],
-            backgroundColor: [
-                'rgba(0, 0, 0, 0)'
-                
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)'
-                
-            ],
-            borderWidth: 3
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:false
-                }
-            }]
-        }
-    }
-});
+                        document.getElementById('hiddenSearch').style.visibility = "visible";
 
-                       
+                        var ctx = document.getElementById("myChart").getContext('2d');
+
+                        var today = new Date();
+                        var dd0 = today.getDate();
+                        var dd1 = today.getDate() - 1;
+                        var dd2 = today.getDate() - 2;
+                        var dd3 = today.getDate() - 3;
+                        var dd4 = today.getDate() - 4;
+                        var dd5 = today.getDate() - 5;
+                        var dd6 = today.getDate() - 6;
+                        var dd7 = today.getDate() - 7;
+                        var mm = today.getMonth() + 1;
+                        var yy = today.getFullYear();
+
+                        if (mm === 1) {
+                            mo = "Jan."
+                        };
+                        if (mm === 2) {
+                            mo = "Feb."
+                        };
+                        if (mm === 3) {
+                            mo = "Mar."
+                        };
+                        if (mm === 4) {
+                            mo = "Apr."
+                        };
+                        if (mm === 5) {
+                            mo = "May"
+                        };
+                        if (mm === 6) {
+                            mo = "June"
+                        };
+                        if (mm === 7) {
+                            mo = "July"
+                        };
+                        if (mm === 8) {
+                            mo = "Aug."
+                        };
+                        if (mm === 9) {
+                            mo = "Sep."
+                        };
+                        if (mm === 10) {
+                            mo = "Oct."
+                        };
+                        if (mm === 11) {
+                            mo = "Nov."
+                        };
+                        if (mm === 12) {
+                            mo = "Dec."
+                        };
+
+
+                        var myChart = new Chart(ctx, {
+
+                            type: 'line',
+                            data: {
+                                labels: [mo + " " + dd6 + ", " + yy, mo + " " + dd5 +
+                                    ", " + yy, mo + " " + dd4 + ", " + yy, mo + " " +
+                                    dd3 + ", " + yy, mo + " " + dd2 + ", " + yy, mo +
+                                    " " + dd1 + ", " + yy, mo + " " + dd0 + ", " +
+                                    yy
+                                ],
+                                datasets: [{
+                                    label: userSearch.search + ' Price in $',
+                                    data: [data.price[0], data.price[1], data.price[
+                                            2], data.price[3], data.price[4],
+                                        data.price[5], data.price[6]
+                                    ],
+                                    backgroundColor: [
+                                        'rgba(0, 0, 0, 0)'
+
+                                    ],
+                                    borderColor: [
+                                        'rgba(255,99,132,1)'
+
+                                    ],
+                                    borderWidth: 3
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: false
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+
                     } else {
                         alert("Uh Oh something went wrong X_X");
                     }
                     $("#searchTerm").val("");
                 });
-                
+
             });
 
-//hidden search
+            //hidden search
 
-$("#hiddenSearchButton").on("click", function (event) {
+            $("#hiddenSearchButton").on("click", function (event) {
                 event.preventDefault();
                 var userSearch = {
                     search: $("#hiddenSearchTerm").val().trim().toUpperCase()
@@ -265,14 +237,14 @@ $("#hiddenSearchButton").on("click", function (event) {
 
                         var today = new Date();
                         var dd0 = today.getDate();
-                        var dd1 = today.getDate()-1;
-                        var dd2 = today.getDate()-2;
-                        var dd3 = today.getDate()-3;
-                        var dd4 = today.getDate()-4;
-                        var dd5 = today.getDate()-5;
-                        var dd6 = today.getDate()-6;
-                        var dd7 = today.getDate()-7;
-                        var mm = today.getMonth()+1;
+                        var dd1 = today.getDate() - 1;
+                        var dd2 = today.getDate() - 2;
+                        var dd3 = today.getDate() - 3;
+                        var dd4 = today.getDate() - 4;
+                        var dd5 = today.getDate() - 5;
+                        var dd6 = today.getDate() - 6;
+                        var dd7 = today.getDate() - 7;
+                        var mm = today.getMonth() + 1;
                         var yy = today.getFullYear();
 
                         if (mm === 1) {
@@ -315,17 +287,26 @@ $("#hiddenSearchButton").on("click", function (event) {
                         var myChart = new Chart(ctx, {
                             type: 'line',
                             data: {
-                                labels: [mo + " " + dd7 + ", " + yy, mo + " " + dd6 + ", " + yy, mo + " " + dd5 + ", " + yy, mo + " " + dd4 + ", " + yy, mo + " " + dd3 + ", " + yy, mo + " " + dd2 + ", " + yy, mo + " " + dd1 + ", " + yy, mo + " " + dd0 + ", " + yy],
+                                labels: [mo + " " + dd7 + ", " + yy, mo + " " + dd6 +
+                                    ", " + yy, mo + " " + dd5 + ", " + yy, mo + " " +
+                                    dd4 + ", " + yy, mo + " " + dd3 + ", " + yy, mo +
+                                    " " + dd2 + ", " + yy, mo + " " + dd1 + ", " +
+                                    yy, mo + " " + dd0 + ", " + yy
+                                ],
                                 datasets: [{
                                     label: userSearch.search + ' Price in USD',
-                                    data: [data.price[0], data.price[1], data.price[2], data.price[3], data.price[4], data.price[5], data.price[6], data.price[7]],
+                                    data: [data.price[0], data.price[1], data.price[
+                                            2], data.price[3], data.price[4],
+                                        data.price[5], data.price[6], data.price[
+                                            7]
+                                    ],
                                     backgroundColor: [
                                         'rgba(0, 0, 0, 0)'
-                                        
+
                                     ],
                                     borderColor: [
                                         'rgba(255,99,132,1)'
-                                        
+
                                     ],
                                     borderWidth: 3
                                 }]
@@ -334,7 +315,7 @@ $("#hiddenSearchButton").on("click", function (event) {
                                 scales: {
                                     yAxes: [{
                                         ticks: {
-                                            beginAtZero:false
+                                            beginAtZero: false
                                         }
                                     }]
                                 }
@@ -346,7 +327,7 @@ $("#hiddenSearchButton").on("click", function (event) {
                     }
                     $("#searchTerm").val("");
                 });
-                
+
             });
 
 
