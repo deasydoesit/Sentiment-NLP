@@ -25,3 +25,36 @@
 .title {
     vertical-align: top 150px;
 }
+
+
+#sentiment {
+    float: right;
+    margin: 0 60px 0 0;
+  }
+
+.has-text-centered {
+    background-color: rgb(159, 214, 236);
+    opacity: .8;
+}
+
+#searchButton {
+    margin-left: 200px;
+    margin-right: auto;
+}
+
+.container1 {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#title {
+    font-size: 42px;
+    color: black;
+}
+
+#subtitle {
+    font-size: 28px;
+    color: black;
+}
+
