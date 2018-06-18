@@ -12,8 +12,9 @@
 } */
 
 .has-bg-img {
-    background: url('./Images/bg1.jpg')center center;
+    background: url('./Images/bg3.png')center center;
     background-size: cover;
+    margin-top: 10px;
 }
 
 .img-responsive {
@@ -26,7 +27,6 @@
     vertical-align: top 150px;
 }
 
-
 #sentiment {
     position: relative;
     top: 80px;
@@ -35,13 +35,16 @@
     margin: 0 60px 0 0; */
   }
 
+
 .has-text-centered {
-    background-color: rgb(159, 214, 236);
-    opacity: .8;
+    width: 750px;
+    background-color: lightgray;
+    border-color: rgb(77, 101, 209);
+    border-style: solid;
 }
 
 #searchButton {
-    margin-left: 200px;
+    margin-left: 150px;
     margin-right: auto;
 }
 
@@ -51,10 +54,11 @@
 }
 
 .container1 {
-    width: 500px;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
+
 
 #title, {
     font-size: 42px;
@@ -68,7 +72,8 @@
 }
 
 #subtitle {
-    font-size: 28px;
+    font-size: 22px;
     color: black;
+    line-height: 40px;
+    padding-bottom: 10px;
 }
-
