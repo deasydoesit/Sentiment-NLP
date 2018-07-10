@@ -1,326 +1,35 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sentiment.NLP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-
-</head>
-
-<body>
-    <!--hero-->
-    
-    <section id="frontPage" class="hero is-large has-bg-img">
-        <div class="container">
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <p id="title" class="title has-text-dark has-text-weight-bold ">
-                      
-                        Sentiment-NLP
-                    </p>
-                    <p id="subtitle" class="subtitle has-text-dark has-text-weight-bold">
-                        Sentiment analysis aims to determine the attitude of a speaker, writer, or other subject with respect to some topic or the
-                        overall contextual polarity or emotional reaction to a document, interaction, or event.
-                    </p>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SentiGOLD</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    </head>
+    <body>
+        <div class="bg"></div>
+        <div class="content-container">
+            <h1 class="content-title">SentiGOLD</h1>
+            <h2 class="content-body">yes master doge! many text. such aenean, very doge, many text. many doge. much layout. many doge. much elit. wow. want design! plz doge, many text. 
+                such ipsum! very ipsum, such ipsum! wow. so text! much full. plz doge, wow, plz doge, such mattis! wow. oh my layout. txt me! oh my layout. very full! much layout. 
+                very ipsum, such word. plz word, wow, need dolor, oh my layout. many text. such aenean, oh my layout. very full! wow, txt me. plz design. much lorem! wow.  
+            </h2>
+            <hr class="content-divider">
+            <div class="has-text-centered field has-addons search-container">
+                <div class="control is-expanded">
+                    <input class="input is-info crypto-search" type="text" placeholder="Bitcoin, Ethereum, Ripple, etc..">
                 </div>
-                <br>
-                <br>
-                <div class="container1">
-                    <div class=" block ">
-                        <div class="field">
-                            <p class="control ">
-                                <input type="text " class="input is-info" id="searchTerm" placeholder="Bitcoin, Ethereum, Zcash... ">
-                            </p>
-                        </div>
-                        <a href="#" class="button is-link is-rounded is-focused is-medium" id="searchButton">Search</a>
-                    </div>
+                <div class="control search-button-container">
+                    <a class="button is-info search-button">
+                        Search
+                    </a>
                 </div>
-
-                <div id="sentiment" style="font-size: 30px"></div>
-                <br>
-                <canvas id="myChart" width="0" height="0"></canvas>
-
             </div>
         </div>
-    </div>
-    </section>
-
-    <div class="container has-text-centered" style="background: white; margin: 10px, 0, 0, 0">
-        <h5 id="hiddenTitle" class="title has-text-dark has-text-weight-bold ">
-            Sentiment-NLP
-        </h5>
-   
-    <div class="container1">
-        <div class=" block ">
-            <div class="field">
-                <p class="control ">
-                    <input type="text " class="input is-info" id="hiddenSearchTerm" placeholder="Bitcoin, Ethereum, Zcash... ">
-                </p>
-            </div>
-            <a href="#" class="button is-link is-rounded is-focused is-medium" id="hiddenSearchButton">Search</a>
-        </div>
-    </div>
-
-</div>
-
-    <div id="sentiment" style="font-size: 30px"></div>
-    
-    <canvas class="chartjs-render-monitor" id="myChart" width="0" height="0"></canvas>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin=" anonymous "></script>
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-
-document.getElementById('hiddenSearchTerm').style.visibility = "hidden";
-document.getElementById('hiddenTitle').style.visibility = "hidden";
-document.getElementById('hiddenSearchButton').style.visibility = "hidden";
-
-            // Capture the form inputs 
-            $("#searchButton").on("click", function (event) {
-                event.preventDefault();
-                var userSearch = {
-                    search: $("#searchTerm").val().trim().toUpperCase()
-                };
-                //post request
-                $.post("/api", userSearch, function (data) {
-                    if (data) {
-
-                        console.log(data);
-
-            var showChart = document.getElementById('frontPage');
-            showChart.remove()
-
-
-
-var watson = " Sentiment: " + data.watson.label
-
-if (data.watson.score > 0) {
-document.getElementById("sentiment").style.color = "green";
-}
-if (data.watson.score < 0) {
-document.getElementById("sentiment").style.color = "red";
-}
-if (data.watson.score == 0) {
-document.getElementById("sentiment").style.color = "orange";
-}
-
-var watson = "Today's Sentiment: " + data.watson.label
-
-$("#sentiment").append(watson);
-
-                      
-$('html,body').scrollTop(0);
-
-document.getElementById('hiddenSearchTerm').style.visibility = "visible";
-document.getElementById('hiddenTitle').style.visibility = "visible";
-document.getElementById('hiddenSearchButton').style.visibility = "visible";
-
-var ctx = document.getElementById("myChart").getContext('2d');
-
-var today = new Date();
-var dd0 = today.getDate();
-var dd1 = today.getDate()-1;
-var dd2 = today.getDate()-2;
-var dd3 = today.getDate()-3;
-var dd4 = today.getDate()-4;
-var dd5 = today.getDate()-5;
-var dd6 = today.getDate()-6;
-var dd7 = today.getDate()-7;
-var mm = today.getMonth()+1;
-var yy = today.getFullYear();
-
-if (mm === 1) {
-    mo = "Jan."
-};
-if (mm === 2) {
-    mo = "Feb."
-};
-if (mm === 3) {
-    mo = "Mar."
-};
-if (mm === 4) {
-    mo = "Apr."
-};
-if (mm === 5) {
-    mo = "May"
-};
-if (mm === 6) {
-    mo = "June"
-};
-if (mm === 7) {
-    mo = "July"
-};
-if (mm === 8) {
-    mo = "Aug."
-};
-if (mm === 9) {
-    mo = "Sep."
-};
-if (mm === 10) {
-    mo = "Oct."
-};
-if (mm === 11) {
-    mo = "Nov."
-};
-if (mm === 12) {
-    mo = "Dec."
-};
-
-
-var myChart = new Chart(ctx, {
-
-    type: 'line',
-    data: {
-        labels: [mo + " " + dd6 + ", " + yy, mo + " " + dd5 + ", " + yy, mo + " " + dd4 + ", " + yy, mo + " " + dd3 + ", " + yy, mo + " " + dd2 + ", " + yy, mo + " " + dd1 + ", " + yy, mo + " " + dd0 + ", " + yy],
-        datasets: [{
-            label: userSearch.search + ' Price in $',
-            data: [data.price[0], data.price[1], data.price[2], data.price[3], data.price[4], data.price[5], data.price[6]],
-            backgroundColor: [
-                'rgba(0, 0, 0, 0)'
-                
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)'
-                
-            ],
-            borderWidth: 3
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:false
-                }
-            }]
-        }
-    }
-});
-
-                       
-                    } else {
-                        alert("Uh Oh something went wrong X_X");
-                    }
-                    $("#searchTerm").val("");
-                });
-                
-            });
-
-//hidden search
-
-$("#hiddenSearchButton").on("click", function (event) {
-                event.preventDefault();
-                var userSearch = {
-                    search: $("#hiddenSearchTerm").val().trim().toUpperCase()
-                };
-                //post request
-                $.post("/api", userSearch, function (data) {
-                    if (data) {
-                        console.log(data);
-
-                        var watson = "Today's Sentiment: " + data.watson.label;
-                        $("#sentiment").text(watson)
-
-                        var ctx = document.getElementById("myChart").getContext('2d');
-
-                        var today = new Date();
-                        var dd0 = today.getDate();
-                        var dd1 = today.getDate()-1;
-                        var dd2 = today.getDate()-2;
-                        var dd3 = today.getDate()-3;
-                        var dd4 = today.getDate()-4;
-                        var dd5 = today.getDate()-5;
-                        var dd6 = today.getDate()-6;
-                        var dd7 = today.getDate()-7;
-                        var mm = today.getMonth()+1;
-                        var yy = today.getFullYear();
-
-                        if (mm === 1) {
-                            mo = "Jan."
-                        };
-                        if (mm === 2) {
-                            mo = "Feb."
-                        };
-                        if (mm === 3) {
-                            mo = "Mar."
-                        };
-                        if (mm === 4) {
-                            mo = "Apr."
-                        };
-                        if (mm === 5) {
-                            mo = "May"
-                        };
-                        if (mm === 6) {
-                            mo = "June"
-                        };
-                        if (mm === 7) {
-                            mo = "July"
-                        };
-                        if (mm === 8) {
-                            mo = "Aug."
-                        };
-                        if (mm === 9) {
-                            mo = "Sep."
-                        };
-                        if (mm === 10) {
-                            mo = "Oct."
-                        };
-                        if (mm === 11) {
-                            mo = "Nov."
-                        };
-                        if (mm === 12) {
-                            mo = "Dec."
-                        };
-
-                        var myChart = new Chart(ctx, {
-                            type: 'line',
-                            data: {
-                                labels: [mo + " " + dd6 + ", " + yy, mo + " " + dd5 + ", " + yy, mo + " " + dd4 + ", " + yy, mo + " " + dd3 + ", " + yy, mo + " " + dd2 + ", " + yy, mo + " " + dd1 + ", " + yy, mo + " " + dd0 + ", " + yy],
-                                datasets: [{
-                                    label: userSearch.search + ' Price in USD',
-                                    data: [data.price[0], data.price[1], data.price[2], data.price[3], data.price[4], data.price[5], data.price[6]],
-                                    backgroundColor: [
-                                        'rgba(0, 0, 0, 0)'
-                                        
-                                    ],
-                                    borderColor: [
-                                        'rgba(255,99,132,1)'
-                                        
-                                    ],
-                                    borderWidth: 3
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero:false
-                                        }
-                                    }]
-                                }
-                            }
-                        });
-
-                    } else {
-                        alert("Uh Oh something went wrong X_X");
-                    }
-                    $("#searchTerm").val("");
-                });
-                
-            });
-
-
-        });
-    </script>
-</body>
-
+    </body>
 </html>

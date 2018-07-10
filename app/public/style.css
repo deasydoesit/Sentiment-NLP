@@ -1,79 +1,94 @@
-/* .container {
-    width: 60%;
-    align-items: center;
+body, html {
+    height: 100%;
+    margin: 0;
 }
 
-.button {
-    margin-left: 350px;
-}
-
-.hero {
-    background-image: "./Images/bg1.jpg";
-} */
-
-.has-bg-img {
-    background: url('./Images/bg3.png')center center;
+.bg {
+    background-image: url("./Images/bg3.png");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 10px;
-}
-
-.img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.title {
-    vertical-align: top 150px;
-}
-
-#sentiment {
     position: relative;
-    top: 80px;
-    left: 65%;
-    /* float: right;
-    margin: 0 60px 0 0; */
-  }
-
-
-.has-text-centered {
-    width: 750px;
-    background-color: lightgray;
-    /* border-color: rgb(77, 101, 209); */
-    /* border-style: solid; */
 }
 
-#searchButton {
-    margin-left: 150px;
-    margin-right: auto;
-}
-
-#hiddenSearchButton {
-    /* margin-left: 200px;
-    margin-right: auto; */
-}
-
-.container1 {
-    width: 400px;
+.content-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 65%;
     margin-left: auto;
     margin-right: auto;
+    left: -2%;
+    right: 0;
+    /* background-color: #696969; */
+    /* background-color: #E6E6FA;  */
+    background-color: #FFDEAD;   
+    /* background-color: #DAA520; */
+    border-radius: 25px;
+}
+
+.content-title {
+    padding: 2rem 2rem 1.5rem 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #171717;
+}
+
+.content-body {
+    padding: 0 2rem 1rem 2rem;
+    color: #282828;
+}
+
+.content-divider {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    background-color: #393939;
+}
+
+.search-container {
+    width: 25rem;
+    margin: 0 auto;
+}
+
+.crypto-search {
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+@media only screen and (max-width: 715px) {
+    .search-container {
+        width: 20rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .field.has-addons  {
+        display: block;
+    }
+    .crypto-search {
+        margin-bottom: 1rem;
+    }
+    .search-button-container {
+        text-align: center!important;
+        margin-bottom: 1rem;
+    }
+    .search-button {
+        border-radius: 5px !important;
+    }
+    .content-container {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .search-container {
+        width: 15rem;
+    }
 }
 
 
-#title, {
-    font-size: 42px;
-    color: black;
-}
 
-#hiddenTitle {
-    font-size: 42px;
-    color: black;
-    margin: 20px 0 15px 0;
-}
-
-#subtitle {
-    font-size: 22px;
-    color: black;
-    line-height: 40px;
-    padding-bottom: 10px;
-}
