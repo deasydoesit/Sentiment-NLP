@@ -52,9 +52,11 @@ body, html {
     margin-right: auto;
     left: -2%;
     right: 0;
-    background-color: #696969;
-    background-color: #404040;
-    background-color: rgba(64,64,64,0.95);
+    /* background-color: #696969;
+    background-color: #404040; */
+    /* background-color: rgba(64,64,64,0.95); */
+    background-color: rgba(191,155,48,0.95);
+    background-color: rgba(189,183,107,0.90);
     /* background-color: #2F4F4F; */
     /* background-color: #474747; */
     border-radius: 25px;
