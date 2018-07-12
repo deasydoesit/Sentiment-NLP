@@ -1,3 +1,18 @@
+/* Fonts 
+-------------------------------------*/
+@font-face {
+    font-family: 'simplificasimplifica';
+    src: url('fonts/simplifica_typeface-webfont.eot');
+    src: url('fonts/simplifica_typeface-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/simplifica_typeface-webfont.woff2') format('woff2'),
+         url('fonts/simplifica_typeface-webfont.woff') format('woff'),
+         url('fonts/simplifica_typeface-webfont.ttf') format('truetype'),
+         url('fonts/simplifica_typeface-webfont.svg#simplificasimplifica') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* Fonts 
+-------------------------------------*/
 body, html {
     height: 100%;
     margin: 0;
@@ -10,34 +25,39 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .content-container {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 65%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     left: -2%;
     right: 0;
-    /* background-color: #696969; */
-    /* background-color: #E6E6FA;  */
-    background-color: #FFDEAD;   
-    /* background-color: #DAA520; */
+    background-color: #696969;
+    background-color: #404040;
+    background-color: rgba(64,64,64,0.95);
+    /* background-color: #2F4F4F; */
+    /* background-color: #474747; */
     border-radius: 25px;
 }
 
 .content-title {
-    padding: 2rem 2rem 1.5rem 2rem;
+    padding: 1rem 4rem;
     font-size: 3rem;
     font-weight: bold;
-    color: #171717;
+    color: #F5F5F5;
+    font-family: 'simplificasimplifica';
+    font-size: 7rem;
+    letter-spacing: .66rem;
 }
 
 .content-body {
-    padding: 0 2rem 1rem 2rem;
-    color: #282828;
+    padding: 0 4rem;
+    color: #DCDCDC;
 }
 
 .content-divider {
