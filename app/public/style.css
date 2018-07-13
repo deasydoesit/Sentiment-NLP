@@ -1,130 +1,158 @@
 /* Fonts 
 -------------------------------------*/
-@font-face {
-    font-family: 'simplificasimplifica';
-    src: url('fonts/simplifica_typeface-webfont.eot');
-    src: url('fonts/simplifica_typeface-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/simplifica_typeface-webfont.woff2') format('woff2'),
-         url('fonts/simplifica_typeface-webfont.woff') format('woff'),
-         url('fonts/simplifica_typeface-webfont.ttf') format('truetype'),
-         url('fonts/simplifica_typeface-webfont.svg#simplificasimplifica') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+    @font-face {
+        font-family: 'simplificasimplifica';
+        font-weight: normal;
+        font-style: normal;
+        src: url('fonts/simplifica_typeface-webfont.eot');
+        src: url('fonts/simplifica_typeface-webfont.eot?#iefix') format('embedded-opentype'),
+            url('fonts/simplifica_typeface-webfont.woff2') format('woff2'),
+            url('fonts/simplifica_typeface-webfont.woff') format('woff'),
+            url('fonts/simplifica_typeface-webfont.ttf') format('truetype'),
+            url('fonts/simplifica_typeface-webfont.svg#simplificasimplifica') format('svg');
+    }
+
+/* Global Styles 
+-------------------------------------*/
+    html {
+        font-size: 1rem
+    }
 /* Navbar Styles 
 -------------------------------------*/
-.navbar-color {
-    background-color: #7a7a7a;
-}
+    .navbar-color {
+        background-color: #7a7a7a;
+    }
 
-.theme-nav {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #F5F5F5;
-    font-family: 'simplificasimplifica';
-    letter-spacing: 0.33rem;
-}
+    a.theme-nav:hover {
+        color: #F5F5F5;
+    }
 
+    .navbar-wrapper {
+        background-color: #7a7a7a;
+        height: 64px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
 
+    .theme-nav {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #F5F5F5;
+        font-family: 'simplificasimplifica', sans-serif;
+        letter-spacing: 0.33rem;
+    }
+
+    .navbar-width-control {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 /* Hero Styles 
 -------------------------------------*/
-body, html {
-    height: 100%;
-    margin: 0;
-}
-
-.bg {
-    background-image: url("./Images/bg3.png");
-    height: 100%; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.content-container {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    left: -2%;
-    right: 0;
-    /* background-color: #696969;
-    background-color: #404040; */
-    /* background-color: rgba(64,64,64,0.95); */
-    background-color: rgba(191,155,48,0.95);
-    background-color: rgba(189,183,107,0.90);
-    /* background-color: #2F4F4F; */
-    /* background-color: #474747; */
-    border-radius: 25px;
-}
-
-.content-title {
-    padding: 1rem 4rem 0 4rem;
-    font-size: 7rem;
-    font-weight: bold;
-    color: #F5F5F5;
-    font-family: 'simplificasimplifica';
-    letter-spacing: .66rem;
-}
-
-.content-body {
-    padding: 0 4rem;
-    color: #DCDCDC;
-}
-
-.content-divider {
-    margin-left: 2rem;
-    margin-right: 2rem;
-    background-color: #393939;
-}
-
-.search-container {
-    width: 25rem;
-    margin: 0 auto;
-}
-
-.crypto-search {
-    margin-bottom: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-}
-
-@media only screen and (max-width: 715px) {
-    .search-container {
-        width: 20rem;
+    body, html {
+        height: 100%;
+        margin: 0;
     }
-}
 
-@media only screen and (max-width: 600px) {
-    .field.has-addons  {
-        display: block;
+    /* Parallax Effect */
+    .bg {
+        background-image: url("./Images/bg3.png");
+        min-height: 100%; 
+        position: relative;
+        background-color: rgba(0,0,0,0.5);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* background-size: cover; */
     }
-    .crypto-search {
-        margin-bottom: 1rem;
-    }
-    .search-button-container {
-        text-align: center!important;
-        margin-bottom: 1rem;
-    }
-    .search-button {
-        border-radius: 5px !important;
-    }
+
     .content-container {
-        width: 90%;
+        position: absolute;
+        top: 30%;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        left: -2%;
+        right: 0;
+        /* background-color: rgba(64,64,64,0.95); */
+        /* background-color: rgba(191,155,48,0.95); */
+        background-color: rgba(189,183,107,0.90);
+        border-radius: 25px;
     }
-}
 
-@media only screen and (max-width: 420px) {
+    .content-title {
+        padding: 1rem 4rem 0 4rem;
+        font-size: 7rem;
+        font-weight: bold;
+        color: #F5F5F5;
+        font-family: 'simplificasimplifica', sans-serif;
+        letter-spacing: .66rem;
+        margin-right: -0.66rem;
+    }
+
+    .content-body {
+        padding: 0 4rem;
+        color: #DCDCDC;
+    }
+
+    .content-divider {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        background-color: #393939;
+    }
+
     .search-container {
-        width: 15rem;
+        width: 25rem;
+        margin: 0 auto;
     }
-}
 
+    .crypto-search {
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+
+/* Media Queries 
+-------------------------------------*/
+    @media only screen and (max-width: 715px) {
+        .search-container {
+            width: 20rem;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .field.has-addons  {
+            display: block;
+        }
+        .crypto-search {
+            margin-bottom: 1rem;
+        }
+        .search-button-container {
+            text-align: center!important;
+            margin-bottom: 1rem;
+        }
+        .search-button {
+            border-radius: 5px !important;
+        }
+        .content-container {
+            width: 90%;
+        }
+    }
+
+    @media only screen and (max-width: 420px) {
+        .search-container {
+            width: 15rem;
+        }
+    }
+
+    /* Remove Parallax on Mobile */
+    @media only screen and (max-device-width: 1366px) {
+        .bg {
+            background-attachment: scroll;
+        }
+    }
 
 

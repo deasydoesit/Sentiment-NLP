@@ -1,110 +1,116 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SentiGOLD</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-        <link rel="stylesheet" type="text/css" media="screen" href="style.css">
-    </head>
-    <body class="has-navbar-fixed-top">
-            <nav class="navbar is-fixed-top navbar-color">
-                    <div class="navbar-brand">
-                      <a class="navbar-item theme-nav" href="#">
-                          SentiGOLD
-                      </a>
-                      <div class="navbar-burger burger" data-target="navMenuColorblack-example">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                    </div>
-                  
-                    <div id="navMenuColorblack-example" class="navbar-menu">
-                      <div class="navbar-start">
-                        <a class="navbar-item" href="https://bulma.io/">
-                          Home
-                        </a>
-                        <div class="navbar-item has-dropdown is-hoverable">
-                          <a class="navbar-link" href="/documentation/overview/start/">
-                            Docs
-                          </a>
-                          <div class="navbar-dropdown">
-                            <a class="navbar-item" href="/documentation/overview/start/">
-                              Overview
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-                              Modifiers
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                              Columns
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-                              Layout
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-                              Form
-                            </a>
-                            <hr class="navbar-divider">
-                            <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-                              Elements
-                            </a>
-                            <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-                              Components
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                  
-                      <div class="navbar-end">
-                        <div class="navbar-item">
-                          <div class="field is-grouped">
-                            <p class="control">
-                              <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms">
-                                <span class="icon">
-                                  <i class="fab fa-twitter"></i>
-                                </span>
-                                <span>
-                                  Tweet
-                                </span>
-                              </a>
-                            </p>
-                            <p class="control">
-                              <a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.7.1/bulma-0.7.1.zip">
-                                <span class="icon">
-                                  <i class="fas fa-download"></i>
-                                </span>
-                                <span>Download</span>
-                              </a>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </nav>
-                  
-        <div class="bg"></div>
-        <div class="content-container">
-            <h1 class="content-title">SentiGOLD</h1>
-            <h2 class="content-body">yes master doge! many text. such aenean, very doge, many text. many doge. much layout. many doge. much elit. wow. want design! plz doge, many text. 
-                such ipsum! very ipsum, such ipsum! wow. so text! much full. plz doge, wow, plz doge, such mattis! wow. oh my layout. txt me! oh my layout. very full! much layout. 
-                very ipsum, such word. plz word, wow, need dolor, oh my layout. many text. such aenean, oh my layout. very full! wow, txt me. plz design. much lorem! wow.  
-            </h2>
-            <hr class="content-divider">
-            <div class="has-text-centered field has-addons search-container">
-                <div class="control is-expanded">
-                    <input class="input is-info crypto-search" type="text" placeholder="Bitcoin, Ethereum, Ripple, etc..">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SentiGOLD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <link rel="preload" href="fonts/simplifica_typeface-webfont.woff2" as="font">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+  </head>
+  <body class="has-navbar-fixed-top">
+    <div class="navbar-wrapper">
+      <nav class="navbar is-fixed-top navbar-color navbar-width-control">
+          <div class="navbar-brand">
+            <a class="navbar-item theme-nav" href="#">
+                SentiGOLD
+            </a>
+            <div class="navbar-burger burger" data-target="navMenuColorblack-example">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div id="navMenuColorblack-example" class="navbar-menu">
+            <div class="navbar-start">
+              <a class="navbar-item" href="https://bulma.io/">
+                Home
+              </a>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="/documentation/overview/start/">
+                  Docs
+                </a>
+                <div class="navbar-dropdown">
+                  <a class="navbar-item" href="/documentation/overview/start/">
+                    Overview
+                  </a>
+                  <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+                    Modifiers
+                  </a>
+                  <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                    Columns
+                  </a>
+                  <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
+                    Layout
+                  </a>
+                  <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
+                    Form
+                  </a>
+                  <hr class="navbar-divider">
+                  <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
+                    Elements
+                  </a>
+                  <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
+                    Components
+                  </a>
                 </div>
-                <div class="control search-button-container">
-                    <a class="button is-info search-button">
-                        Search
+              </div>
+            </div>
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="field is-grouped">
+                  <p class="control">
+                    <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms">
+                      <span class="icon">
+                        <i class="fab fa-twitter"></i>
+                      </span>
+                      <span>
+                        Tweet
+                      </span>
                     </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.7.1/bulma-0.7.1.zip">
+                      <span class="icon">
+                        <i class="fas fa-download"></i>
+                      </span>
+                      <span>Download</span>
+                    </a>
+                  </p>
                 </div>
+              </div>
+            </div>
+          </div>
+      </nav> 
+    </div>    
+    <div class="bg"></div>
+    <div class="content-container">
+        <h1 class="content-title">SentiGOLD</h1>
+        <h2 class="content-body">yes master doge! many text. such aenean, very doge, many text. many doge. much layout. many doge. much elit. wow. want design! plz doge, many text. 
+            such ipsum! very ipsum, such ipsum! wow. so text! much full. plz doge, wow, plz doge, such mattis! wow. oh my layout. txt me! oh my layout. very full! much layout. 
+            very ipsum, such word. plz word, wow, need dolor, oh my layout. many text. such aenean, oh my layout. very full! wow, txt me. plz design. much lorem! wow.  
+        </h2>
+        <hr class="content-divider">
+        <div class="has-text-centered field has-addons search-container">
+            <div class="control is-expanded">
+                <input class="input is-info crypto-search" type="text" placeholder="Bitcoin, Ethereum, Ripple, etc..">
+            </div>
+            <div class="control search-button-container">
+                <a class="button is-info search-button">
+                    Search
+                </a>
             </div>
         </div>
-    </body>
+    </div>
+    <div style="height:1000px;background-color:whitesmoke;font-size:36px">
+        Scroll Up and Down this page to see the parallax scrolling effect.
+        This div is just here to enable scrolling.
+        Tip: Try to remove the background-attachment property to remove the scrolling effect.
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  </body>
 </html>
